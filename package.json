@@ -1,0 +1,20 @@
+{
+  "name": "To-Do-list",
+  "version": "1.0.0",
+  "description": "To-Do list made using MERN stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohtasim317/To-Do-list.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohtasim317/To-Do-list/issues"
+  },
+  "homepage": "https://github.com/mohtasim317/To-Do-list#readme"
+}
