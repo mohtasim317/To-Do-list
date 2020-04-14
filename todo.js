@@ -19,5 +19,6 @@ button.addEventListener("click", (event) => {
     listItem.appendChild(removeButton);
     list.appendChild(listItem);
     text = "";
+    textField.value = "";
   }
 });
