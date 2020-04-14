@@ -13,6 +13,9 @@ button.addEventListener("click", (event) => {
   if (text !== "") {
     listItem.innerText = text;
     removeButton.innerText = "X";
+    removeButton.addEventListener("click", (event) => {
+      listItem.remove();
+    });
     listItem.appendChild(removeButton);
     list.appendChild(listItem);
     text = "";
