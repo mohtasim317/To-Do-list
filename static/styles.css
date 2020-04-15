@@ -25,6 +25,8 @@
 }
 
 .main-list {
+  width: 500px;
+  padding: 0px 0px 0px 550px;
   display: flex;
   flex-direction: column;
   justify-items: center;
