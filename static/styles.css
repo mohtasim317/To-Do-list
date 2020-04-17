@@ -31,3 +31,16 @@
   flex-direction: column;
   justify-items: center;
 }
+
+.list-item {
+  font-size: 15px;
+}
+
+.remove-button {
+  margin: 0px 0px 0px 3px;
+  padding: 0px 4px 0px 0px;
+  width: 8px;
+  height: 8px;
+  font-size: 1px;
+  align-items: center;
+}

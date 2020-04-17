@@ -12,6 +12,8 @@ button.addEventListener("click", (event) => {
   const removeButton = document.createElement("button");
   if (text !== "") {
     listItem.innerText = text;
+    listItem.className = "list-item";
+    removeButton.className = "remove-button";
     removeButton.innerText = "X";
     removeButton.addEventListener("click", (event) => {
       listItem.remove();
