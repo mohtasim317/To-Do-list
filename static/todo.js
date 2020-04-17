@@ -14,7 +14,7 @@ button.addEventListener("click", (event) => {
     listItem.innerText = text;
     listItem.className = "list-item";
     removeButton.className = "remove-button";
-    removeButton.innerText = "X";
+    removeButton.innerText = "x";
     removeButton.addEventListener("click", (event) => {
       listItem.remove();
     });
