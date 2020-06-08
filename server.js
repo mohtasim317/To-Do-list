@@ -8,7 +8,6 @@ require("dotenv/config");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 app.use("/static", express.static(path.join(__dirname, "./static")));
 
 app.get("/", (req, res) => {
