@@ -17,7 +17,7 @@ app.get("/posts", (req, res) => {
   res.send("We're on posts");
 });
 
-mongoose.connect(process.env.DB_connection, { useNewUrlParser: true }, () => {
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("we connected");
 });
 
