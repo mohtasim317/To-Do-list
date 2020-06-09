@@ -14,13 +14,16 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-app.get("/posts", (req, res) => {
-  res.send("We're on posts");
-});
-
 mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
   console.log("we connected");
 });
+
+// app.get("/posts", (req, res) => {
+//   const item = new Item({
+//     item: req.body.item,
+//   });
+//   item.find();
+// });
 
 app.post("/posts", (req, res) => {
   const item = new Item({
