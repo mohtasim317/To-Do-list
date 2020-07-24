@@ -40,12 +40,15 @@ function adding(event) {
     });
     listItem.appendChild(removeButton);
     list.appendChild(listItem);
-    fetch("http://localhost:1738/posts", {
+    fetch("http://localhost:1738/posts/", {
       method: "POST",
-      body: JSON.stringify({ item: "hello" }),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
+      body: JSON.stringify({ item: text }), //jsn stringify
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "same-origin",
+    }).then((res) => console.log(res)),
+      (err) => console.log(err);
     text = "";
     textField.value = "";
   }

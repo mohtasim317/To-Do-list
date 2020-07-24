@@ -38,11 +38,11 @@ app.get("/posts", async (req, res) => {
 
 app.post("/posts", async (req, res) => {
   console.log(req);
-  const item = new Item({
+  const adding = new Item({
     item: req.body.item,
   });
   try {
-    const newItem = await item.save();
+    const newItem = await adding.save();
     res.json(newItem);
   } catch (err) {
     res.json({ message: err });
