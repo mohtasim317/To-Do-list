@@ -14,7 +14,16 @@ fetch("http://localhost:1738/posts/")
         listItem.className = "list-item";
         removeButton.className = "remove-button";
         removeButton.innerText = "x";
+        removeButton.id = object._id;
         removeButton.addEventListener("click", (event) => {
+          fetch(`http://localhost:1738/posts/${removeButton.id}`, {
+            method: "DELETE",
+            body: JSON.stringify({ _id: removeButton.id }), //jsn stringify
+            headers: {
+              "Content-Type": "application/json",
+            },
+            credentials: "same-origin",
+          }).then((res) => console.log(res));
           listItem.remove();
         });
         listItem.appendChild(removeButton);
@@ -47,8 +56,7 @@ function adding(event) {
         "Content-Type": "application/json",
       },
       credentials: "same-origin",
-    }).then((res) => console.log(res)),
-      (err) => console.log(err);
+    });
     text = "";
     textField.value = "";
   }
