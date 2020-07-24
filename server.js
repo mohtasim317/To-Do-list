@@ -3,9 +3,11 @@ const path = require("path");
 const app = express();
 const PORT = 1738;
 const mongoose = require("mongoose");
+const cors = require("cors");
 const Item = require("./models/Item");
 require("dotenv/config");
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use("/static", express.static(path.join(__dirname, "./static")));
@@ -35,6 +37,7 @@ app.get("/posts", async (req, res) => {
 });
 
 app.post("/posts", async (req, res) => {
+  console.log(req);
   const item = new Item({
     item: req.body.item,
   });

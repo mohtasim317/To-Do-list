@@ -40,9 +40,9 @@ function adding(event) {
     });
     listItem.appendChild(removeButton);
     list.appendChild(listItem);
-    fetch("http://localhost:1738/posts/", {
+    fetch("http://localhost:1738/posts", {
       method: "POST",
-      body: { item: text },
+      body: JSON.stringify({ item: "hello" }),
     })
       .then((res) => res.json())
       .then((res) => console.log(res));
