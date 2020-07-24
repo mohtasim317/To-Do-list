@@ -14,29 +14,31 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => {
-  console.log("we connected");
-});
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  () => {
+    console.log("we connected");
+  }
+);
 
-// app.get("/posts", (req, res) => {
-//   const item = new Item({
-//     item: req.body.item,
-//   });
-//   item.find();
-// });
+app.get("/posts", (req, res) => {
+  res.send("hello from posts");
+});
 
 app.post("/posts", (req, res) => {
   const item = new Item({
     item: req.body.item,
   });
-  item
-    .save()
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.send({ message: err });
-    });
+  try {
+    const newItem = item.save();
+    res.json(newItem);
+  } catch (err) {
+    res.json({ message: err });
+  }
 });
 
 app.listen(PORT);
