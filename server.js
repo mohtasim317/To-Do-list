@@ -25,17 +25,52 @@ mongoose.connect(
   }
 );
 
-app.get("/posts", (req, res) => {
-  res.send("hello from posts");
+app.get("/posts", async (req, res) => {
+  try {
+    const all = await Item.find();
+    res.json(all);
+  } catch (err) {
+    res.json({ message: err });
+  }
 });
 
-app.post("/posts", (req, res) => {
+app.post("/posts", async (req, res) => {
   const item = new Item({
     item: req.body.item,
   });
   try {
-    const newItem = item.save();
+    const newItem = await item.save();
     res.json(newItem);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+app.get("/posts/:postId", async (req, res) => {
+  try {
+    let myPost = await Item.findById(req.params.postId);
+    res.json(myPost);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+app.delete("/posts/:postId", async (req, res) => {
+  try {
+    let deleted = await Item.deleteOne({ _id: req.params.postId });
+    res.json(deleted);
+  } catch (err) {
+    res.json({ message: err });
+  }
+});
+
+app.patch("/posts/:postId", async (req, res) => {
+  try {
+    let updated = await Item.updateOne(
+      { _id: req.params.postId },
+      { $set: { item: req.body.item } }
+    );
+    res.json(updated);
   } catch (err) {
     res.json({ message: err });
   }
