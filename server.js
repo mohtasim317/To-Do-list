@@ -7,6 +7,7 @@ const cors = require("cors");
 const Item = require("./models/Item");
 require("dotenv/config");
 
+//Add posts in separate page
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
